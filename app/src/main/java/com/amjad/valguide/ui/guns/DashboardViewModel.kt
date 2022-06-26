@@ -1,4 +1,4 @@
-package com.amjad.valguide.ui.dashboard
+package com.amjad.valguide.ui.guns
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

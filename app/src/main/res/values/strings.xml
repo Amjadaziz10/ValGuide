@@ -3,4 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="agents">Agents</string>
+    <string name="maps">Maps</string>
+    <string name="guns">Guns</string>
+    <string name="valorant">Valorant</string>
+    <string name="valorant_agents">Valorant Agents</string>
+    <string name="agent">Agent</string>
+    <string name="role">Role</string>
 </resources>

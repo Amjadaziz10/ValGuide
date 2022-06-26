@@ -1,4 +1,4 @@
-package com.amjad.valguide.ui.notifications
+package com.amjad.valguide.ui.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater

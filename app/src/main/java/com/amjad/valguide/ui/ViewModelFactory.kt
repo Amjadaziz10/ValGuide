@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.amjad.valguide.data.Repository
 import com.amjad.valguide.di.Injection
 import com.amjad.valguide.ui.agents.AgentsViewModel
+import com.amjad.valguide.ui.agents.detailagent.DetailAgentViewModel
 
 class ViewModelFactory private constructor(private val repository: Repository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -27,9 +28,9 @@ class ViewModelFactory private constructor(private val repository: Repository) :
         if (modelClass.isAssignableFrom(AgentsViewModel::class.java)) {
             return AgentsViewModel(repository) as T
         }
-//        else if(modelClass.isAssignableFrom(MapViewModel::class.java)){
-//            return MapViewModel(repository) as T
-//        }
+        else if(modelClass.isAssignableFrom(DetailAgentViewModel::class.java)){
+            return DetailAgentViewModel(repository) as T
+        }
 //        else if(modelClass.isAssignableFrom(TrafficDetailViewModel::class.java)){
 //            return TrafficDetailViewModel(repository) as T
 //        }

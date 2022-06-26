@@ -5,6 +5,11 @@ data class AgentResponse(
     val data: List<AgentList>
 )
 
+data class AgentResponseById(
+    val status: String,
+    val data: AgentList
+)
+
 data class AgentList(
     val uuid: String,
     val displayName: String,

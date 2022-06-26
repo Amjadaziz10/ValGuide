@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.amjad.valguide.data.remote.api.ApiConfig
 import com.amjad.valguide.data.remote.response.AgentList
 import com.amjad.valguide.data.remote.response.AgentResponse
+import com.amjad.valguide.data.remote.response.AgentResponseById
 import com.amjad.valguide.data.remote.response.Role
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,6 +14,7 @@ import retrofit2.Response
 
 class Repository {
     val listAgent = MutableLiveData<ArrayList<AgentList>>()
+    val agent = MutableLiveData<AgentList>()
 
     fun setAgents(){
         val client = ApiConfig.getApiService().getAgents()
@@ -29,8 +31,27 @@ class Repository {
         })
     }
 
+    fun setAgentById(uuid: String){
+        val client = ApiConfig.getApiService().getAgentById(uuid)
+        client.enqueue(object : Callback<AgentResponseById> {
+            override fun onResponse(call: Call<AgentResponseById>, response: Response<AgentResponseById>) {
+                if(response.isSuccessful){
+                    agent.postValue(response.body()?.data)
+                }
+            }
+
+            override fun onFailure(call: Call<AgentResponseById>, t: Throwable) {
+                t.message?.let { Log.d("onFailure", it) }
+            }
+        })
+    }
+
     fun getAgents(): LiveData<ArrayList<AgentList>> {
         return listAgent
+    }
+
+    fun getAgentById(): LiveData<AgentList>{
+        return agent
     }
 
     companion object {

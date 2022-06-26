@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_val"
+    android:orientation="vertical"
+    tools:context=".ui.agents.detailagent.DetailAgentActivity">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/bg_detail_img"
+            android:layout_width="285dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_btn"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/sova_bg"/>
+
+        <TextView
+            android:id="@+id/agent_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/tungsten_bold"
+            android:textAllCaps="true"
+            android:textColor="@color/red_val"
+            android:textSize="70sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.594"
+            app:layout_constraintStart_toStartOf="@+id/bg_detail_img"
+            app:layout_constraintTop_toTopOf="@+id/bg_detail_img"
+            tools:text="@string/agent" />
+
+
+        <ImageView
+            android:id="@+id/agent_detail_img"
+            android:layout_width="255dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_btn"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/sova" />
+
+
+        <TextView
+            android:id="@+id/role_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tungsten_bold"
+            tools:text="@string/role"
+            android:textColor="@color/white_val"
+            android:textSize="45sp"
+            android:alpha="0.8"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_detail_img"
+            app:layout_constraintEnd_toEndOf="@id/bg_detail_img" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dinnextw1g_med"
+            android:text="// Biography"
+            android:textColor="@color/white_val"
+            android:textSize="20sp"
+            android:layout_marginStart="24dp"
+            android:letterSpacing="-0.05"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/agent_detail_img" />
+
+        <TextView
+            android:id="@+id/biography_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.7"
+            android:ellipsize="end"
+            android:fontFamily="@font/dinnextw1g_normal"
+            android:letterSpacing="-0.05"
+            android:maxLines="6"
+            tools:text="@string/biography"
+            android:textColor="@color/white_val"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/tungsten_bold"
+            android:text="@string/abilities"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white_val"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/biography_desc" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <ImageView
+                android:id="@+id/ability_1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_ability"
+                android:padding="6dp"
+                tools:src="@drawable/ability_icon" />
+
+            <ImageView
+                android:id="@+id/ability_2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_ability"
+                android:padding="6dp"
+                tools:src="@drawable/ability_icon" />
+
+            <ImageView
+                android:id="@+id/ability_3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_ability"
+                android:padding="6dp"
+                tools:src="@drawable/ability_icon" />
+
+            <ImageView
+                android:id="@+id/ability_4"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/button_ability"
+                android:padding="6dp"
+                tools:src="@drawable/ability_icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ability_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dinnextw1g_med"
+            tools:text="@string/abilities"
+            android:textColor="@color/white_val"
+            android:textSize="20sp"
+            android:layout_marginStart="24dp"
+            android:letterSpacing="-0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <TextView
+            android:id="@+id/ability_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dinnextw1g_normal"
+            android:letterSpacing="-0.05"
+            android:text="@string/abilities"
+            android:textColor="@color/white_val"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:alpha="0.7"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/ability_tv"
+            app:layout_constraintTop_toBottomOf="@+id/ability_tv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

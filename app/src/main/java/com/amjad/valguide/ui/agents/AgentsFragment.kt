@@ -1,15 +1,20 @@
 package com.amjad.valguide.ui.agents
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amjad.valguide.data.remote.response.AgentList
 import com.amjad.valguide.databinding.FragmentAgentsBinding
 import com.amjad.valguide.ui.ViewModelFactory
+import com.amjad.valguide.ui.agents.detailagent.DetailAgentActivity
+import com.amjad.valguide.utils.Constants.EXTRA_ID
 
 class AgentsFragment : Fragment() {
 
@@ -53,7 +58,7 @@ class AgentsFragment : Fragment() {
         }
         adapter.setOnItemClickCallback(object : AgentsListAdapter.OnItemClickCallback {
             override fun onItemClicked(data: AgentList) {
-//                showSelectedItem(data)
+                showSelectedItem(data)
             }
         })
     }
@@ -64,5 +69,12 @@ class AgentsFragment : Fragment() {
         }else{
             binding.pBar.visibility = View.INVISIBLE
         }
+    }
+
+    private fun showSelectedItem(data: AgentList) {
+        val intent = Intent (activity, DetailAgentActivity::class.java)
+        intent.putExtra(EXTRA_ID, data.uuid)
+        activity?.startActivity(intent)
+        Toast.makeText(activity, data.displayName + " Selected" , Toast.LENGTH_SHORT).show()
     }
 }

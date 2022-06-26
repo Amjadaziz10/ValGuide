@@ -10,4 +10,6 @@
     <string name="valorant_agents">Valorant Agents</string>
     <string name="agent">Agent</string>
     <string name="role">Role</string>
+    <string name="abilities">Abilities</string>
+    <string name="biography">// Biography</string>
 </resources>

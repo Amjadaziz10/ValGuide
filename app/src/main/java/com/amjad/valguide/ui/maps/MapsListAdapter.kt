@@ -1,21 +1,22 @@
-package com.amjad.valguide.ui.agents
+package com.amjad.valguide.ui.maps
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.amjad.valguide.data.remote.response.AgentList
 import com.amjad.valguide.data.remote.response.GunList
-import com.amjad.valguide.databinding.AgentItemBinding
+import com.amjad.valguide.data.remote.response.MapList
+import com.amjad.valguide.databinding.GunItemBinding
+import com.amjad.valguide.databinding.MapItemBinding
 import com.bumptech.glide.Glide
 
-class AgentsListAdapter :
-    ListAdapter<AgentList, AgentsListAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class MapsListAdapter :
+    ListAdapter<MapList, MapsListAdapter.ListViewHolder>(DIFF_CALLBACK) {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val binding = AgentItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = MapItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
     }
 
@@ -23,25 +24,22 @@ class AgentsListAdapter :
         holder.bind(getItem(position))
     }
 
-    inner class ListViewHolder(private val binding: AgentItemBinding) :
+    inner class ListViewHolder(private val binding: MapItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: AgentList) {
+        fun bind(data: MapList) {
             Glide.with(itemView)
-                .load(data.displayIcon)
-                .into(binding.agentImg)
-            Glide.with(itemView)
-                .load(data.background)
+                .load(data.listViewIcon)
                 .into(binding.bgImg)
-            binding.roleTv.text = data.role.displayName
-            binding.agentTv.text = data.displayName
+            binding.mapTv.text = data.displayName
             binding.root.setOnClickListener {
                 onItemClickCallback.onItemClicked(data)
             }
         }
     }
 
+
     interface OnItemClickCallback {
-        fun onItemClicked(data: AgentList)
+        fun onItemClicked(data: MapList)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -49,14 +47,15 @@ class AgentsListAdapter :
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<AgentList>() {
-            override fun areItemsTheSame(oldItem: AgentList, newItem: AgentList): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MapList>() {
+            override fun areItemsTheSame(oldItem: MapList, newItem: MapList): Boolean {
                 return oldItem.uuid == newItem.uuid
             }
 
-            override fun areContentsTheSame(oldItem: AgentList, newItem: AgentList): Boolean {
+            override fun areContentsTheSame(oldItem: MapList, newItem: MapList): Boolean {
                 return oldItem == newItem
             }
         }
     }
+
 }

@@ -7,6 +7,8 @@ import com.amjad.valguide.data.Repository
 import com.amjad.valguide.di.Injection
 import com.amjad.valguide.ui.agents.AgentsViewModel
 import com.amjad.valguide.ui.agents.detailagent.DetailAgentViewModel
+import com.amjad.valguide.ui.guns.GunsViewModel
+import com.amjad.valguide.ui.maps.MapsViewModel
 
 class ViewModelFactory private constructor(private val repository: Repository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -31,9 +33,12 @@ class ViewModelFactory private constructor(private val repository: Repository) :
         else if(modelClass.isAssignableFrom(DetailAgentViewModel::class.java)){
             return DetailAgentViewModel(repository) as T
         }
-//        else if(modelClass.isAssignableFrom(TrafficDetailViewModel::class.java)){
-//            return TrafficDetailViewModel(repository) as T
-//        }
+        else if(modelClass.isAssignableFrom(GunsViewModel::class.java)){
+            return GunsViewModel(repository) as T
+        }
+        else if(modelClass.isAssignableFrom(MapsViewModel::class.java)){
+            return MapsViewModel(repository) as T
+        }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

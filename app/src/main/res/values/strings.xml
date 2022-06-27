@@ -12,4 +12,6 @@
     <string name="role">Role</string>
     <string name="abilities">Abilities</string>
     <string name="biography">// Biography</string>
+    <string name="valorant_guns">Valorant Guns</string>
+    <string name="valorant_maps">Valorant Maps</string>
 </resources>

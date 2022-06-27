@@ -1,2 +1,2 @@
 # ValGuide
-Valorant Guide App
+Valorant Guide App (Under Development)
